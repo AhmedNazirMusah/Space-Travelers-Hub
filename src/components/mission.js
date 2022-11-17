@@ -19,15 +19,17 @@ const Mission = ({ mission }) => {
       <td className="w-[60%] border-2 border-zinc-400 p-2">{mission.description}</td>
       <td className="w-[15%] border-2 border-zinc-400 text-center">
         <div className="flex justify-center">
-          {mission.reserved ? (
+          {mission.reserved && (
             <p className="bg-sky-400 rounded-md p-2 text-white ">Active Member</p>
-          ) : (
-            <p className="text-white bg-zinc-500 p-2 rounded-md">NOT A MEMBER</p>
+          )}
+          {' '}
+          {!mission.reserved && (
+          <p className="text-white bg-zinc-500 p-2 rounded-md">NOT A MEMBER</p>
           )}
         </div>
       </td>
       <td className="w-[15%] border-2 border-zinc-400 text-center">
-        {mission.reserved ? (
+        {mission.reserved && (
           <button
             className="border-2 border-red-500 rounded-md text-red-700 p-2 hover:bg-red-500 hover:text-white tracking-wide"
             type="button"
@@ -36,14 +38,16 @@ const Mission = ({ mission }) => {
             {' '}
             Cancel Mission
           </button>
-        ) : (
-          <button
-            className="bg-blue-600 rounded-md shadow-md p-2 text-white hover:bg-blue-700 tracking-wide"
-            type="button"
-            onClick={() => bookAction(mission.id)}
-          >
-            Join Mission
-          </button>
+        )}
+        {' '}
+        {!mission.reserved && (
+        <button
+          className="bg-blue-600 rounded-md shadow-md p-2 text-white hover:bg-blue-700 tracking-wide"
+          type="button"
+          onClick={() => bookAction(mission.id)}
+        >
+          Join Mission
+        </button>
         )}
 
       </td>
