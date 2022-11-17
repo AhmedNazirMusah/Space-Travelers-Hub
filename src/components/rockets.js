@@ -13,8 +13,8 @@ const Rockets = () => {
   }, []);
 
   return (
-    <div>
-      <ul>
+    <div className="px-10 py-12">
+      <ul className="flex flex-col gap-8">
         {rockets.map((rocket) => (
           <Rocket key={rocket.id} rocket={rocket} />
         ))}
